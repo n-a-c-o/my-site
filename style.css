@@ -133,13 +133,9 @@ a:hover{text-decoration:underline}
 /* 薄い影を足す */
 .hero .accent--white { text-shadow: 0 1px 2px rgba(0,0,0,.35); }
 
-/* Blog のリスト項目どうしの間隔を広げる */
-#blog .list li + li { 
-  margin-top: 20px; 
+/* Blogのリスト間のすき間を増やす */
+#blog .list {
+  display: grid;
+  gap: 18px; 
 }
 
-/* タイトル行に少し下マージン */
-#blog .title { 
-  margin-bottom: 4px; 
-  display: block; 
-}
