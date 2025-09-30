@@ -126,3 +126,10 @@ a:hover{text-decoration:underline}
 }
 
 /* モバイル最適化（デフォで1カラム、余白大きめ） */
+
+/* hero の naco を白にする*/
+.accent--white { color:#fff; }
+
+/* 薄い影を足す */
+.hero .accent--white { text-shadow: 0 1px 2px rgba(0,0,0,.35); }
+
