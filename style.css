@@ -29,6 +29,9 @@ body{
 a{color:var(--accent); text-decoration:none}
 a:hover{text-decoration:underline}
 
+/* アクセント用（ヒーローの名前など） */
+.accent{color:var(--accent)}
+
 .site-header{
   border-bottom:1px solid var(--border);
   position:sticky; top:0; backdrop-filter: blur(8px);
@@ -62,21 +65,58 @@ a:hover{text-decoration:underline}
 .meta{color:var(--muted); font-size:14px}
 
 .embed{margin:12px 0}
+/* SpeakerDeck/YouTube などの埋め込みは比率固定でレスポンシブ */
 .embed iframe{
-  width:100%; height:320px; border:0; border-radius:10px; background:#000;
+  width:100%;
+  aspect-ratio: 16 / 9;   /* 縦横比を維持 */
+  height:auto;
+  border:0;
+  border-radius:10px;
+  background:#000;
+}
+/* aspect-ratio 未対応ブラウザ向けフォールバック */
+@supports not (aspect-ratio: 1 / 1) {
+  .embed{ position:relative; padding-top:56.25%; } /* 16:9 */
+  .embed iframe{ position:absolute; inset:0; width:100%; height:100%; }
 }
 
 .contact-form{display:grid; gap:12px; max-width:520px}
 .contact-form label{display:grid; gap:6px; font-size:14px}
-.contact-form input, .contact-form textarea{
-  width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:10px;
+.contact-form input,
+.contact-form textarea{
+  width:100%; padding:10px 12px;
+  border:1px solid var(--border); border-radius:10px;
   background:#fff; color:var(--text);
 }
+
+/* placeholder の色を統一 */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+  color:var(--muted);
+  opacity:.9;
+}
+
+/* Autofill（Safari/Chrome）の文字色を統一 */
+.contact-form input:-webkit-autofill,
+.contact-form textarea:-webkit-autofill{
+  -webkit-text-fill-color:var(--text);
+  caret-color:var(--text);
+  transition: background-color 9999s; /* 黄背景のチラつき回避 */
+}
+
 .contact-form button{
   padding:10px 16px; border-radius:10px; border:1px solid var(--accent);
   background:var(--accent); color:#fff; font-weight:600; cursor:pointer;
 }
 .contact-form button:hover{opacity:.9}
+
+/* ダークモード時の入力欄の地色を調整（任意だけど見やすい） */
+@media (prefers-color-scheme: dark){
+  .contact-form input,
+  .contact-form textarea{
+    background:#121418;
+  }
+}
 
 .muted{color:var(--muted); font-size:12px}
 
