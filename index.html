@@ -112,26 +112,35 @@
 
     <!-- Contact（Netlify Forms） -->
     <section id="contact" class="section container">
-      <h2>Contact</h2>
-      <form
-  name="contact"
-  method="POST"
-  action="/thanks.html"
-  netlify
-  netlify-honeypot="bot-field"
-  class="contact-form"
->
-  <input type="hidden" name="form-name" value="contact" />
-  <p hidden aria-hidden="true">
-    <label>Don’t fill this out: <input name="bot-field"></label>
-  </p>
+  <h2>Contact</h2>
 
-  <label>お名前<input name="name" autocomplete="name" required /></label>
-  <label>メール<input type="email" name="email" autocomplete="email" required /></label>
-  <label>メッセージ<textarea name="message" rows="5" required></textarea></label>
-  <button type="submit">送信</button>
-</form>
-    </section>
+  <!-- 表示される本体フォーム -->
+  <form
+    name="contact"
+    method="POST"
+    action="/thanks.html"
+    netlify
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    class="contact-form"
+  >
+    <input type="hidden" name="form-name" value="contact" />
+    <p hidden aria-hidden="true">
+      <label>Don’t fill this out: <input name="bot-field"></label>
+    </p>
+
+    <label>お名前<input name="name" autocomplete="name" required /></label>
+    <label>メール<input type="email" name="email" autocomplete="email" required /></label>
+    <label>メッセージ<textarea name="message" rows="5" required></textarea></label>
+    <button type="submit">送信</button>
+  </form>
+
+  <!-- 検出のためのダミーフォーム（非表示） -->
+  <form name="contact" netlify data-netlify="true" hidden>
+    <input name="name"><input type="email" name="email"><textarea name="message"></textarea>
+  </form>
+</section>
+
   </main>
 
   <footer class="site-footer">
