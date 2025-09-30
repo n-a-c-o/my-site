@@ -139,3 +139,21 @@ a:hover{text-decoration:underline}
   gap: 18px; 
 }
 
+/* ===== 黒テーマを常時固定 ===== */
+:root{
+  --bg:#000;           /* 背景を黒で固定 */
+  --text:#e7e7e7;      /* 文字は明るいグレー */
+  --muted:#a0a0a0;     /* 補助文字色 */
+  --border:#24262b;    /* 罫線 */
+  --accent:#4ea1ff;    /* アクセント（お好みで） */
+}
+
+/* 入力欄も黒系に（上書き） */
+.contact-form input,
+.contact-form textarea{
+  background:#121418;
+  color:var(--text);
+}
+
+/* ヘッダーの半透明感が強すぎる場合は少しだけ明るく（任意） */
+/* .site-header{ background-color: rgba(0,0,0,0.85); } */
