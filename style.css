@@ -155,5 +155,3 @@ a:hover{text-decoration:underline}
   color:var(--text);
 }
 
-/* ヘッダーの半透明感が強すぎる場合は少しだけ明るく（任意） */
-/* .site-header{ background-color: rgba(0,0,0,0.85); } */
