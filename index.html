@@ -6,20 +6,24 @@
   <title>naco_mm | ポートフォリオ</title>
   <meta name="description" content="エンジニア/デザイナーのポートフォリオ。制作物・登壇資料・ブログ・連絡先。" />
 
-  <!-- SNSで見栄えUP（あとで og-image.png を置く） -->
-  <meta property="og:title" content="あなたの名前 | ポートフォリオ" />
+  <!-- Open Graph / Twitter -->
+  <link rel="canonical" href="https://www.naco-mm.com/">
+  <meta property="og:title" content="naco_mm | ポートフォリオ" />
   <meta property="og:description" content="制作物・登壇資料・ブログ・連絡先。" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:url" content="https://www.naco-mm.com/" />
+  <meta property="og:image" content="https://www.naco-mm.com/og-image.jpg" />
+  <meta property="og:site_name" content="naco_mm" />
+  <meta property="og:locale" content="ja_JP" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="#top">あなたの名前</a>
+      <a class="brand" href="#top">naco_mm</a>
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#works">Works</a>
@@ -33,13 +37,13 @@
   <main id="top">
     <!-- ヒーロー/イントロ（シンプル・余白広め） -->
     <section class="hero container">
-      <h1>こんにちは、<span class="accent">あなたの名前</span>です。</h1>
+      <h1>こんにちは、<span class="accent">naco_mm</span>です。</h1>
       <p class="lead">
         Webエンジニア / デザイナー。シンプルで読みやすいUIと、軽量なWebをつくっています。
       </p>
       <p class="social">
-        <a href="https://github.com/your-id" target="_blank" rel="noopener">GitHub</a>・
-        <a href="https://x.com/your-id" target="_blank" rel="noopener">X</a>・
+        <a href="https://github.com/your-id" target="_blank" rel="noopener noreferrer">GitHub</a>・
+        <a href="https://x.com/your-id" target="_blank" rel="noopener noreferrer">X</a>・
         <a href="mailto:you@example.com">Email</a>
       </p>
     </section>
@@ -57,13 +61,13 @@
       <h2>Works</h2>
       <ul class="list">
         <li>
-          <a class="list-item" href="https://example.com/work1" target="_blank" rel="noopener">
+          <a class="list-item" href="https://example.com/work1" target="_blank" rel="noopener noreferrer">
             <span class="title">作品タイトル1</span>
             <span class="meta">2025 / フロントエンド</span>
           </a>
         </li>
         <li>
-          <a class="list-item" href="https://example.com/work2" target="_blank" rel="noopener">
+          <a class="list-item" href="https://example.com/work2" target="_blank" rel="noopener noreferrer">
             <span class="title">作品タイトル2</span>
             <span class="meta">2024 / UIデザイン</span>
           </a>
@@ -77,6 +81,7 @@
       <div class="embed">
         <!-- SpeakerDeck: スライドIDを差し替え -->
         <iframe
+          title="SpeakerDeck slide"
           src="https://speakerdeck.com/player/あなたのスライドID"
           allowfullscreen
           loading="lazy"></iframe>
@@ -96,22 +101,23 @@
     <section id="blog" class="section container">
       <h2>Blog</h2>
       <ul class="list">
-        <li><a class="list-item" href="https://example.com/blog/post-1" target="_blank" rel="noopener">
+        <li><a class="list-item" href="https://example.com/blog/post-1" target="_blank" rel="noopener noreferrer">
           <span class="title">記事タイトル1</span>
           <span class="meta">2025-09-01 / 技術</span>
         </a></li>
-        <li><a class="list-item" href="https://example.com/blog/post-2" target="_blank" rel="noopener">
+        <li><a class="list-item" href="https://example.com/blog/post-2" target="_blank" rel="noopener noreferrer">
           <span class="title">記事タイトル2</span>
           <span class="meta">2025-08-10 / 所感</span>
         </a></li>
       </ul>
     </section>
 
-    <!-- Contact（Netlify Formsに対応させておく） -->
+    <!-- Contact（Netlify Forms） -->
     <section id="contact" class="section container">
       <h2>Contact</h2>
-      <form name="contact" method="POST" data-netlify="true" class="contact-form">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
         <input type="hidden" name="form-name" value="contact" />
+        <p hidden aria-hidden="true"><label>Don’t fill this out: <input name="bot-field"></label></p>
         <label>お名前<input name="name" required /></label>
         <label>メール<input type="email" name="email" required /></label>
         <label>メッセージ<textarea name="message" rows="5" required></textarea></label>
@@ -123,7 +129,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <small>© <span id="year"></span> あなたの名前</small>
+      <small>© <span id="year"></span> naco_mm</small>
     </div>
   </footer>
 
